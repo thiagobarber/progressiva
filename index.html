@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progressiva Liso Mágico - Peça Hoje, Pague na Entrega</title>
+    <!-- Google Fonts: Poppins (Moderna, Elegante e Alta Legibilidade) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CONFIGURAÇÕES DE CORES E IDENTIDADE --- */
+        :root {
+            --bg-gradiente-pagina: linear-gradient(180deg, #FFFFFF 0%, #FBF8EE 20%, #F5ECD5 50%, #FBF8EE 80%, #FFFFFF 100%);
+            --dourado-metalico: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
+            --dourado-solido: #B38728;
+            --dourado-escuro: #735314;
+            --dark: #1E1B15; 
+            --shadow-premium: 0 20px 40px rgba(14A, 102, 35, 0.15);
+            --verde-destaque: #2E7D32;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg-gradiente-pagina);
+            color: var(--dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 800;
+            line-height: 1.2;
+            color: var(--dark);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* --- BARRA DE AVISO NO TOPO CENTRALIZADA --- */
+        .top-bar {
+            background: var(--dourado-metalico);
+            color: #000000;
+            text-align: center;
+            padding: 12px 20px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-transform: uppercase;
+            position: relative;
+            z-index: 999;
+        }
+
+        /* --- BOTÕES (CTA) --- */
+        .btn-premium {
+            background: var(--dourado-metalico);
+            color: #000000;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 22px 44px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            display: inline-block;
+            text-decoration: none;
+            letter-spacing: 0.03em;
+            font-size: 1rem;
+            box-shadow: 0 8px 24px rgba(179, 135, 40, 0.4);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            text-align: center;
+        }
+
+        .btn-premium:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 32px rgba(179, 135, 40, 0.6);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.6rem;
+            margin-bottom: 60px;
+            font-weight: 700;
+        }
+
+        /* Apenas a parte destacada do título usa o dourado metálico nítido */
+        .section-title span {
+            background: var(--dourado-metalico);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            filter: drop-shadow(0px 1px 2px rgba(30, 27, 21, 0.15));
+        }
+
+        /* --- DESTAQUES DE PAGAMENTO NA ENTREGA --- */
+        .badge-entrega {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(46, 125, 50, 0.1);
+            border: 1px solid var(--verde-destaque);
+            color: var(--verde-destaque);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+
+        .alert-entrega {
+            background: #E8F5E9;
+            border: 2px dashed var(--verde-destaque);
+            padding: 20px;
+            border-radius: 16px;
+            color: #1B5E20;
+            font-weight: 600;
+            font-size: 1.05rem;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        /* --- 1ª SESSÃO: HERO --- */
+        .hero {
+            padding: 80px 0 100px 0;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-tag {
+            background: rgba(30, 27, 21, 0.06);
+            color: var(--dark);
+            padding: 6px 18px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 24px;
+            letter-spacing: 0.05em;
+        }
+
+        .hero h1 {
+            font-size: 3.4rem;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+            color: var(--dark);
+        }
+
+        .hero h1 span {
+            background: var(--dourado-metalico);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+            margin-top: 10px;
+            filter: drop-shadow(0px 1px 2px rgba(30, 27, 21, 0.15));
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: #3D3528;
+            margin-bottom: 40px;
+            max-width: 620px;
+            font-weight: 500;
+        }
+
+        .hero-image-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .product-img {
+            width: 100%;
+            max-width: 420px;
+            height: auto;
+            border-radius: 24px;
+            box-shadow: var(--shadow-premium);
+            border: 6px solid #FFFFFF;
+        }
+
+        /* --- 3ª SESSÃO: POR QUE COMPRAR --- */
+        .features {
+            padding: 100px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(10px);
+            padding: 50px 40px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(179, 135, 40, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-top: 5px solid var(--dourado-solido);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-premium);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            color: #4A4031;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* --- 4ª SESSÃO: COMO USAR & PROVA SOCIAL --- */
+        .how-to-and-social {
+            padding: 100px 0;
+        }
+
+        .how-to-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            margin-bottom: 100px;
+            align-items: center;
+        }
+
+        .step-item {
+            display: flex;
+            margin-bottom: 35px;
+        }
+
+        .step-number {
+            background: var(--dourado-metalico);
+            color: #000000;
+            font-weight: 800;
+            min-width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 24px;
+            font-size: 1.4rem;
+        }
+
+        .step-text h4 {
+            font-size: 1.2rem;
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+
+        .step-text p {
+            color: #4A4031;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .demo-img-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .demo-img {
+            width: 100%;
+            max-width: 420px;
+            height: auto;
+            border-radius: 24px;
+            box-shadow: var(--shadow-premium);
+            border: 6px solid #FFFFFF;
+        }
+
+        /* Depoimentos */
+        .testimonials {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            padding: 80px 50px;
+            border-radius: 32px;
+            border: 1px solid rgba(179, 135, 40, 0.15);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .testimonial-card {
+            background: #FFFFFF;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.02);
+            border-left: 4px solid var(--dourado-solido);
+        }
+
+        .stars {
+            color: #FFC107;
+            margin-bottom: 16px;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            color: #2D251A;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .client-name {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--dourado-escuro);
+        }
+
+        /* --- 5ª SESSÃO: PREÇO --- */
+        .pricing {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .price-box {
+            background: #FFFFFF;
+            max-width: 560px;
+            margin: 0 auto;
+            padding: 60px 48px;
+            border-radius: 32px;
+            box-shadow: var(--shadow-premium);
+            border: 3px solid transparent;
+            background-image: linear-gradient(white, white), var(--dourado-metalico);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+        }
+
+        .price-tag-old {
+            text-decoration: line-through;
+            color: #7A7265;
+            font-size: 1.3rem;
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+
+        .price-tag-new {
+            font-size: 4.5rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 6px;
+            letter-spacing: -0.03em;
+        }
+
+        .price-tag-new span {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .price-parcel {
+            font-size: 1.6rem;
+            color: var(--dourado-escuro);
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .price-box ul {
+            list-style: none;
+            margin-bottom: 45px;
+            text-align: left;
+            display: inline-block;
+            width: 100%;
+            max-width: 380px;
+        }
+
+        .price-box ul li {
+            margin-bottom: 16px;
+            font-size: 1.05rem;
+            color: #2D251A;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .price-box ul li::before {
+            content: "✓";
+            color: var(--dourado-solido);
+            font-weight: 900;
+            margin-right: 14px;
+            font-size: 1.2rem;
+        }
+
+        /* --- 6ª SESSÃO: RODAPÉ --- */
+        footer {
+            background-color: #14120E;
+            color: #9C9384;
+            padding: 60px 0;
+            font-size: 0.85rem;
+            line-height: 1.8;
+            border-top: 4px solid var(--dourado-solido);
+        }
+
+        footer strong {
+            color: #FFFFFF;
+        }
+
+        footer a {
+            color: #CFC5B4;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        footer a:hover {
+            color: var(--dourado-solido);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 60px;
+            align-items: flex-start;
+        }
+
+        .footer-links p {
+            margin-bottom: 12px;
+        }
+
+        /* --- RESPONSIVIDADE --- */
+        @media (max-width: 968px) {
+            .top-bar {
+                font-size: 0.9rem;
+                padding: 10px 15px;
+            }
+
+            .hero {
+                padding: 50px 0 80px 0;
+            }
+
+            .hero-grid, .how-to-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 50px;
+            }
+
+            .hero h1 {
+                font-size: 2.1rem;
+            }
+
+            .hero p {
+                margin: 0 auto 40px auto;
+            }
+
+            .hero-image-container {
+                order: -1;
+            }
+
+            .section-title {
+                font-size: 2.1rem;
+                margin-bottom: 40px;
+            }
+
+            .testimonials {
+                padding: 40px 20px;
+            }
+
+            .price-box {
+                padding: 40px 20px;
+            }
+
+            .price-tag-new {
+                font-size: 3.6rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+            
+            .step-item {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .step-number {
+                margin-right: 0;
+                margin-bottom: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BARRA DE AVISO TOPO CENTRALIZADA -->
+    <div class="top-bar">
+        🚀 PEÇA HOJE, E PAGUE SÓ NA ENTREGA!
+    </div>
+
+    <!-- HERO / PRIMEIRA SESSÃO -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div>
+                    <span class="hero-tag">✨ TECNOLOGIA CAPILAR PREMIUM</span>
+                    <h1>CONQUISTE O LISO ESPELHADO <span>SEM SAIR DE CASA!</span></h1>
+                    <p>A única fórmula premium com nano-tecnologia térmica que reduz o volume, elimina 100% do frizz e hidrata profundamente. Tenha um liso perfeito, saudável e totalmente livre de formol.</p>
+                    
+                    <a href="#preco" class="btn-premium">Quero Meu Liso Perfeito</a>
+                    <br>
+                    <div class="badge-entrega">
+                        🤝 RISCO ZERO: Compre sem cartão e pague apenas ao receber!
+                    </div>
+                </div>
+                <div class="hero-image-container">
+                    <img src="https://imgur.com/PmQUzAy.png" alt="Progressiva Liso Mágico" class="product-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TERCEIRA SESSÃO: POR QUE COMPRAR -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">POR QUE ESCOLHER O <span>LISO MÁGICO</span>?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">✨</span>
+                    <h3>EFEITO SALÃO EM CASA</h3>
+                    <p>Economize tempo e milhares de reais. Conquiste o alinhamento perfeito e o brilho espelhado no conforto do seu lar.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🛡️</span>
+                    <h3>ZERO FORMOL</h3>
+                    <p>Fórmula 100% segura e orgânica. Não arde os olhos, não tem cheiro forte e protege totalmente a saúde dos seus fios.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🤝</span>
+                    <h3>PAGUE NA ENTREGA</h3>
+                    <p>Segurança absoluta. Faça seu pedido hoje e pague em dinheiro ou cartão apenas quando o entregador chegar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUARTA SESSÃO: COMO USAR & PROVA SOCIAL -->
+    <section class="how-to-and-social">
+        <div class="container">
+            <div class="how-to-grid">
+                <div>
+                    <h2 class="section-title" style="text-align: left; margin-bottom: 40px;">PASSO A PASSO <span>SIMPLES</span></h2>
+                    
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-text">
+                            <h4>LAVE E PREPARE</h4>
+                            <p>Lave os cabelos com um shampoo antirresíduos para abrir as cutículas e retire o excesso de umidade.</p>
+                        </div>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-text">
+                            <h4>APLIQUE E DEIXE AGIR</h4>
+                            <p>Aplique o Liso Mágico mecha por mecha uniformemente e deixe agir pelo tempo indicado no manual.</p>
+                        </div>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-text">
+                            <h4>ENXÁGUE E PRANCHE</h4>
+                            <p>Retire o excesso com água, escove bem e pranche em mechas finas para selar o liso espelhado.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="demo-img-container">
+                    <img src="https://imgur.com/8gEsULL.png" alt="Demonstração Liso Mágico" class="demo-img">
+                </div>
+            </div>
+
+            <!-- PROVA SOCIAL -->
+            <div class="testimonials">
+                <h3 class="section-title" style="font-size: 2.2rem; margin-bottom: 20px;">QUEM USA, <span>SE APAIXONA!</span></h3>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"Simplesmente maravilhoso! Meu cabelo tinha muito frizz e volume, hoje só lavo e deixo secar naturalmente. Ficou impecável, super sedoso e brilhante."</p>
+                        <div class="client-name">- Mariana S., São Paulo</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"Fiquei com medo de comprar na internet, mas como o pagamento é só na entrega eu arrisquei e amei! Chegou super rápido e o produto cumpre tudo o que promete."</p>
+                        <div class="client-name">- Beatriz M., Rio de Janeiro</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUINTA SESSÃO: PREÇO + CTA FINAL -->
+    <section class="pricing" id="preco">
+        <div class="container">
+            <h2 class="section-title">OFERTA ESPECIAL <span>E EXCLUSIVA</span></h2>
+            <p style="margin-top: -40px; margin-bottom: 50px; color: #555555; font-size: 1.1rem;">Aproveite o frete grátis válido apenas para o lote atual!</p>
+            
+            <div class="price-box">
+                <!-- ALERTA DE PAGAMENTO NA ENTREGA -->
+                <div class="alert-entrega">
+                    📦 <strong>PAGAMENTO APENAS NA ENTREGA!</strong>
+                </div>
+
+                <div class="price-tag-old">De R$ 297,00</div>
+                <div class="price-tag-new"><span>R$</span> 147,00</div>
+                <div class="price-parcel">Ou 12x de R$ 14,76</div>
+                
+                <ul>
+                    <li>Fórmula Original Progressiva Liso Mágico</li>
+                    <li>Liso perfeito e duradouro por até 3 meses</li>
+                    <li>Frete Grátis para todo o Brasil</li>
+                    <li><strong>Pague apenas quando receber em casa</strong></li>
+                </ul>
+
+                <a href="https://entrega.logzz.com.br/pay/memnr3z6g/progressivalisomagico" class="btn-premium" style="width: 100%; font-size: 1.1rem; padding: 22px;">COMPRAR AGORA E PAGAR NA ENTREGA</a>
+                
+                <p style="font-size: 0.85rem; color: #666666; margin-top: 20px; font-weight: 500;">🔒 Compra Segura e Processada por Logzz</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ÚLTIMA SESSÃO: RODAPÉ COM INFORMAÇÕES FISCAIS -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <p><strong>Progressiva Liso Mágico Oficial © 2026</strong></p>
+                    <p>Razão Social: LISO MAGICO COSMETICOS LTDA | CNPJ: 00.000.000/0001-00</p>
+                    <p>Endereço: Avenida Paulista, 1000 - Bela Vista, São Paulo - SP, CEP: 01310-100</p>
+                    <p style="margin-top: 15px; color: #6E6557; font-size: 0.8rem;">Aviso: Os resultados podem variar de acordo com o tipo e estrutura capilar. Siga rigorosamente as instruções de uso contidas no manual de aplicação.</p>
+                </div>
+                <div class="footer-links" style="text-align: right;">
+                    <p><a href="#">Políticas de Privacidade</a></p>
+                    <p><a href="#">Termos de Uso</a></p>
+                    <p><a href="#">Suporte ao Cliente</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
