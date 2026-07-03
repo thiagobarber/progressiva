@@ -14,10 +14,10 @@
         :root {
             --bg-gradiente-pagina: linear-gradient(180deg, #FFFFFF 0%, #FBF8EE 20%, #F5ECD5 50%, #FBF8EE 80%, #FFFFFF 100%);
             --dourado-metalico: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
-            --dourado-solido: #B38728;
+            --dourado-solido: #B58A33; /* Dourado mais vivo e nítido para texto sólido */
             --dourado-escuro: #735314;
             --dark: #1E1B15; 
-            --shadow-premium: 0 20px 40px rgba(14A, 102, 35, 0.15);
+            --shadow-premium: 0 20px 40px rgba(181, 138, 51, 0.15);
             --verde-destaque: #2E7D32;
         }
 
@@ -95,13 +95,14 @@
             font-weight: 700;
         }
 
-        /* Apenas a parte destacada do título usa o dourado metálico nítido */
-        .section-title span {
-            background: var(--dourado-metalico);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        /* NOVO EFEITO: Dourado sólido de alta definição com contraste aprimorado */
+        .section-title span, .hero h1 span {
+            color: var(--dourado-solido);
             display: inline-block;
-            filter: drop-shadow(0px 1px 2px rgba(30, 27, 21, 0.15));
+            text-shadow: 1px 1px 1px rgba(30, 27, 21, 0.15);
+            background: none;
+            -webkit-background-clip: initial;
+            -webkit-text-fill-color: initial;
         }
 
         /* --- DESTAQUES DE PAGAMENTO NA ENTREGA --- */
@@ -168,12 +169,8 @@
         }
 
         .hero h1 span {
-            background: var(--dourado-metalico);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
             display: block;
             margin-top: 10px;
-            filter: drop-shadow(0px 1px 2px rgba(30, 27, 21, 0.15));
         }
 
         .hero p {
@@ -541,7 +538,8 @@
                     </div>
                 </div>
                 <div class="hero-image-container">
-                    <img src="https://imgur.com/PmQUzAy.png" alt="Progressiva Liso Mágico" class="product-img">
+                    <!-- OTIMIZAÇÃO: fetchpriority="high" e loading="eager" para renderização instantânea no topo da página -->
+                    <img src="https://imgur.com/PmQUzAy.png" alt="Progressiva Liso Mágico" class="product-img" width="420" height="420" fetchpriority="high" loading="eager">
                 </div>
             </div>
         </div>
@@ -604,7 +602,8 @@
                 </div>
 
                 <div class="demo-img-container">
-                    <img src="https://imgur.com/8gEsULL.png" alt="Demonstração Liso Mágico" class="demo-img">
+                    <!-- OTIMIZAÇÃO: loading="eager" para priorizar o carregamento imediato assim que o usuário rolar -->
+                    <img src="https://imgur.com/8gEsULL.png" alt="Demonstração Liso Mágico" class="demo-img" width="420" height="420" loading="eager">
                 </div>
             </div>
 
@@ -663,7 +662,7 @@
             <div class="footer-grid">
                 <div>
                     <p><strong>Progressiva Liso Mágico Oficial © 2026</strong></p>
-                    <p>Razão Social: LISO MAGICO COSMETICOS LTDA | CNPJ: 00.000.000/0001-00</p>
+                    <p>Razão Social: LISO MAGICO COSMETICOS LTDA | CNPJ: 29.153.127/0001-22</p>
                     <p>Endereço: Avenida Paulista, 1000 - Bela Vista, São Paulo - SP, CEP: 01310-100</p>
                     <p style="margin-top: 15px; color: #6E6557; font-size: 0.8rem;">Aviso: Os resultados podem variar de acordo com o tipo e estrutura capilar. Siga rigorosamente as instruções de uso contidas no manual de aplicação.</p>
                 </div>
