@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Progressiva Liso Mágico - Peça Hoje, Pague na Entrega</title>
+    
+    <link rel="preload" href="https://imgur.com/PmQUzAy.png" as="image" fetchpriority="high">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -11,17 +14,17 @@
     <style>
         /* --- CONFIGURAÇÕES DE CORES E IDENTIDADE DARK LUXURY --- */
         :root {
-            --bg-pagina: #0D0C0A; /* Preto Obsidian com toque quente */
-            --bg-alternativo: #141310; /* Variação sutil para seções */
-            --bg-card: #1C1A15; /* Fundo dos blocos de conteúdo */
+            --bg-pagina: #0D0C0A; 
+            --bg-alternativo: #141310; 
+            --bg-card: #1C1A15; 
             --ouro-gradiente: linear-gradient(135deg, #FFE082 0%, #D4AF37 50%, #8A6623 100%);
             --ouro-solido: #E5C158;
             --ouro-escuro: #AA771C;
-            --dark: #FFFFFF; /* Texto principal agora é branco */
-            --texto-suave: #C4BDB3; /* Cinza quente para descrições */
+            --dark: #FFFFFF; 
+            --texto-suave: #C4BDB3; 
             --shadow-premium: 0 25px 60px rgba(0, 0, 0, 0.6), 0 10px 30px rgba(181, 138, 51, 0.03);
             --shadow-button: 0 12px 35px rgba(212, 175, 55, 0.3);
-            --verde-destaque: #81C784; /* Verde adaptado para Modo Escuro */
+            --verde-destaque: #81C784; 
             --verde-bg: #0D2B11;
         }
 
@@ -218,6 +221,7 @@
             border: 1px solid rgba(255,255,255,0.1);
             position: relative;
             z-index: 2;
+            content-visibility: auto; /* Otimização extra de renderização do navegador */
         }
 
         /* --- FEATURES SECTION --- */
@@ -397,6 +401,7 @@
             background-origin: border-box;
             background-clip: padding-box, border-box;
             position: relative;
+            text-align: center;
         }
 
         .price-tag-old {
@@ -431,7 +436,7 @@
         .price-box ul {
             list-style: none;
             margin-bottom: 40px;
-            text-align: left;
+            text-align: center;
             display: flex;
             flex-direction: column;
             gap: 14px;
@@ -442,6 +447,7 @@
             color: var(--texto-suave);
             display: flex;
             align-items: center;
+            justify-content: center;
             font-weight: 500;
         }
 
@@ -459,6 +465,7 @@
             justify-content: center;
             border-radius: 50%;
             border: 1px solid rgba(129, 199, 132, 0.2);
+            flex-shrink: 0;
         }
 
         /* --- FOOTER --- */
@@ -653,7 +660,7 @@
                 </div>
 
                 <div class="demo-img-container">
-                    <img src="https://imgur.com/8gEsULL.png" alt="Demonstração Liso Mágico" class="demo-img" width="420" height="420" loading="eager">
+                    <img src="https://imgur.com/8gEsULL.png" alt="Demonstração Liso Mágico" class="demo-img" width="420" height="420" loading="lazy">
                 </div>
             </div>
 
